@@ -1,0 +1,6 @@
+/test/
+/src/
+/bin/
+.gitignore
+.eslintrc
+.babelrc
