@@ -11,6 +11,20 @@ class SyncModel extends Model {
     this.getValue(path).then(noop);
     return extract(this, path);
   }
+
+  _clone(opts) {
+    var clone = new SyncModel(this);
+    for (var key in opts) {
+      var value = opts[key];
+      if (value === 'delete') {
+        delete clone[key];
+      } else {
+        clone[key] = value;
+      }
+    }
+    clone.setCache = void 0;
+    return clone;
+  }
 }
 
 module.exports = SyncModel;

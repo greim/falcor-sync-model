@@ -42,11 +42,38 @@ describe('falcor-sync-model', () => {
     assert.strictEqual(model.getValueSync('a'), 'b');
   });
 
-  describe('importing', () => {
+  it('should batch', async function() {
+    const model = new SyncModel().batch();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
 
-    it('should import both in CJS and ES6', () => {
-      const cjsModule = require('../src');
-      assert.strictEqual(SyncModel, cjsModule);
-    });
+  it('should unbatch', async function() {
+    const model = new SyncModel().unbatch();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
+
+  it('should boxValues', async function() {
+    const model = new SyncModel().boxValues();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
+
+  it('should unboxValues', async function() {
+    const model = new SyncModel().unboxValues();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
+
+  it('should treatErrorsAsValues', async function() {
+    const model = new SyncModel().treatErrorsAsValues();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
+
+  it('should withoutDataSource', async function() {
+    const model = new SyncModel().withoutDataSource();
+    assert.strictEqual(typeof model.getValueSync, 'function');
+  });
+
+  it('should import both in CJS and ES6', () => {
+    const cjsModule = require('../src');
+    assert.strictEqual(SyncModel, cjsModule);
   });
 });
