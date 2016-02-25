@@ -4,7 +4,7 @@
 
 **A unified data store** - Falcor `Model#get()` and `Model#getValue()` return promises, regardless of whether a value is cached. This allows all code that reads a Falcor model to be written in the same way, regardless of where the data lives.
 
-**Synchronous rendering** - Unfortunately, current versions of Angular and React can't render promises. Using Falcor thus requires keeping a separate data store which duplicates the contents of the cache, and writing code to keep the two in sync.
+**Synchronous rendering** - Unfortunately, current versions of Angular and React can only render synchronously, i.e. can't render promises. Using Falcor thus requires keeping a separate data store which duplicates the contents of the cache, and writing code to keep the two in sync.[*](https://github.com/Netflix/falcor/issues/572)
 
 ## The solution
 
@@ -27,7 +27,7 @@ var App = React.createClass({
       store: new SyncModel({
         onChange: () => this.forceUpdate(),
         source: new HttpDataSource('/model.json')
-      })
+      }).batch()
     }
   },
 

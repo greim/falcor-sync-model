@@ -1,6 +1,6 @@
 {
   "name": "falcor-sync-model",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Falcor model that can be read from synchronously",
   "main": "lib/index.js",
   "dependencies": {

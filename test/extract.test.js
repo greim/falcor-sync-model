@@ -70,17 +70,17 @@ describe('extract', () => {
     assert.strictEqual(val, null);
   });
 
-  it('should extract an error', () => {
+  it('should not extract an error', () => {
     const val = extract({ foo: { $type: 'error', value: 'oops' } }, ['foo']);
-    assert.strictEqual(val, 'oops');
+    assert.strictEqual(val, undefined);
   });
 
-  it('should extract an error over a ref', () => {
+  it('should not extract an error over a ref', () => {
     const jsong = {
       foo: { $type: 'ref', value: ['bar'] },
       bar: { $type: 'error', value: 'yikes' }
     };
     const val = extract(jsong, ['foo']);
-    assert.strictEqual(val, 'yikes');
+    assert.strictEqual(val, undefined);
   });
 });

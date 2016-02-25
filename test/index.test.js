@@ -42,32 +42,32 @@ describe('falcor-sync-model', () => {
     assert.strictEqual(model.getValueSync('a'), 'b');
   });
 
-  it('should batch', async function() {
+  it('should batch to same type', async function() {
     const model = new SyncModel().batch();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
 
-  it('should unbatch', async function() {
+  it('should unbatch to same type', async function() {
     const model = new SyncModel().unbatch();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
 
-  it('should boxValues', async function() {
+  it('should boxValues to same type', async function() {
     const model = new SyncModel().boxValues();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
 
-  it('should unboxValues', async function() {
+  it('should unboxValues to same type', async function() {
     const model = new SyncModel().unboxValues();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
 
-  it('should treatErrorsAsValues', async function() {
+  it('should treatErrorsAsValues to same type', async function() {
     const model = new SyncModel().treatErrorsAsValues();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
 
-  it('should withoutDataSource', async function() {
+  it('should withoutDataSource to same type', async function() {
     const model = new SyncModel().withoutDataSource();
     assert.strictEqual(typeof model.getValueSync, 'function');
   });
